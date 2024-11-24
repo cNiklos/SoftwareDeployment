@@ -1,14 +1,15 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - nodeJsTestApp
+name: Build and deploy Node.js app to Azure Web App - nodeJSReleaseApp
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-  workflow_dispatch:
-  
+    types:
+      - closed
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -58,15 +59,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8F22CDDAED774AF79AF9D2F298DD671D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_70750EB1C1964B3F8BCD14ED8131E249 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DFB3DDCFCDE142B3BCB5ABE68A868AA7 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B40083BFF48948C58E844A0AC4CEB71F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_11EB2CE284BA4B609EB214524E657A37 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B2BA67D1CCE643C6AF8E2C9D316C39D3 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'nodeJsTestApp'
+          app-name: 'nodeJSReleaseApp'
           slot-name: 'Production'
           package: .
           
