@@ -7,8 +7,8 @@ on:
   pull_request:
     branches:
       - release
-    types:
-      - closed
+#    types:
+#      - closed
 
 jobs:
   build:
