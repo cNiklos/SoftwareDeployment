@@ -4,10 +4,11 @@
 name: Build and deploy Node.js app to Azure Web App - nodeJSReleaseApp
 
 on:
-  push:
+  pull_request:
     branches:
-      - release
-  workflow_dispatch:
+      - main
+    types:
+      - closed
 
 jobs:
   build:
