@@ -59,6 +59,10 @@ app.get('/test1', function (req, res) {
   return res.send('This is another test endpoint!');
 });
 
+app.get('/test2', function (req, res) {
+  return res.send('And another');
+});
+
 // Hello World for index page
 app.get('/', function (req, res) {
   return res.send('Hello World!');
