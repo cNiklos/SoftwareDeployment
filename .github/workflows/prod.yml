@@ -9,7 +9,8 @@ on:
       - release
     types:
       - closed
-
+  workflow_dispatch:
+    
 jobs:
   build:
     runs-on: ubuntu-latest
